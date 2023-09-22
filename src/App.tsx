@@ -1,11 +1,13 @@
-import React from 'react';
+import GlobalStyle from './Style/GlobalStyle';
+import MainPage from "./Pages/MainPage"
 
 
 
 function App() {
   return (
     <>
-    oi
+      <GlobalStyle />
+      <MainPage />
     </>
   );
 }
