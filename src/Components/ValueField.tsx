@@ -1,9 +1,9 @@
 import styled from "styled-components"
 
-export default function ValueField() {
+export default function ValueField({totalValue} : {totalValue: string | null}) {
   return (
     <Container>
-    <h1>Despesa Total: <span>R$ 8168,98</span></h1>
+    <h1>Despesa Total: <span>R$ {!totalValue ? "carregando..." : totalValue}</span></h1>
     </Container>
   )
 }

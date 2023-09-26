@@ -1,12 +1,23 @@
 import SelectFields from "./SelectFields";
 import ValueField from "./ValueField";
 import styled from "styled-components";
+import { Months, Years } from "../Pages/MainPage";
 
-export default function Header() {
+export default function Header(
+  {totalValue, setSelectedYear, setSelectedMonth} : 
+  {totalValue: string | null; 
+  setSelectedYear: (selectedYear : Years | null) => void;
+  setSelectedMonth: (selectedMonth : Months | null) => void}
+  ) {
+  
   return (
     <Container>
-      <SelectFields />
-      <ValueField />
+      
+      <SelectFields  
+      setSelectedYear = {setSelectedYear}
+      setSelectedMonth = {setSelectedMonth} /> 
+      <ValueField totalValue = {totalValue} />
+      
     </Container>
   )
 }

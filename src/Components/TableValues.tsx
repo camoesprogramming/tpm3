@@ -1,29 +1,31 @@
 import styled from "styled-components"
+import { Data } from "../Pages/MainPage"
 
-export default function TableValues() {
+export default function TableValues({data}: {data: Data[] | null} ) {
   return (
     <TableContainer>
       <table>
-        <tr>
-          <th>Despesa</th>
-          <th>Categoria</th>
-          <th>Dia</th>
-          <th>Valor (R$)</th>
-        </tr>
         
-        <tr>
-          <td>Despesa exemplo 1</td>
-          <td>Categoria exemplo 1</td>
-          <td>Dia exemplo 1</td>
-          <td>Valor exemplo 1</td>
-        </tr>
+        <thead>
+          <tr>
+            <th>Despesa</th>
+            <th>Categoria</th>
+            <th>Dia</th>
+            <th>Valor (R$)</th>
+          </tr>
+        </thead>
 
-        <tr>
-          <td>Despesa exemplo 2</td>
-          <td>Categoria exemplo 2</td>
-          <td>Dia exemplo 2</td>
-          <td>Valor exemplo 2</td>
-        </tr>
+        <tbody>
+          {data && data.map((e: Data) => (
+            <tr key={e.id}>
+              <td>{e.descricao}</td>
+              <td>{e.categoria}</td>
+              <td>{e.dia}</td>
+              <td>{e.valor}</td>
+            </tr>
+          ))}
+        </tbody>
+
       </table>
     </TableContainer>
   )
@@ -35,10 +37,10 @@ const TableContainer = styled.div`
   width: 90%;
   
   table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  border: none;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: none;
   }
 
   td, th {
@@ -46,6 +48,7 @@ const TableContainer = styled.div`
     text-align: left;
     padding: 8px;
   }
+
   th {
     font-weight: 600;
   }
